@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <!-- Link to custom styles -->
+
+
+  <style>
+    /* Add your custom styles here */
+    *{
+    padding: 10px;
+    margin: 0;
+    box-sizing: border-box;
+    background-color:white;
+}
+
+.container {
+
+  background-color: rgb(157, 112, 216);
+  min-height: 550px;
+  width: 500px;
+  margin: 60px auto;
+  margin-top: 30px;
+}
+.btn-primary {
+  margin: top 20px; 
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  position: bottom;
+  background-color: rgb(164, 45, 134);
+  color:black;
+  
+
+}
+.btn-secondary {
+  
+  margin: top 20px; 
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 40px;
+  position: bottom;
+  background-color:rgb(164, 45, 134);
+  color:black;
+}
+
+/* Add margin to the slider container */
+.userSlider-container {
+  margin-top: 20px;
+  background-color: rgb(138, 176, 219);
+  
+}
+    .highlighted {
+      background-color: rgb(241, 101, 166); /* Change this to your desired highlighting style */
+    }
+    .orderForm {
+    background-color: rgba(68, 140, 228, 0.913);
+    border:rgba(237, 22, 155, 0.6); /* Change this to your desired form background color */
+    padding: 10px;
+    border-radius: 20px;
+    }
+
+  /* Customize slider background color */
+  .userSlider {
+    background-color: rgb(181, 61, 232);/* Change this to your desired slider background color */
+    width: 80%; /* Adjust the width as needed */
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  .order-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px; /* Adjust as needed */
+  
+
+}
+
+.userSlider-container {
+  width: 40%; /* Adjust the width of the slider container as needed */
+}
+
+.modal-header {
+  background-color: #67afea; /* Choose your desired color */
+  color: rgb(9, 9, 9);
+ 
+  text-align: center; /* Text color for the header */
+}
+
+.modal-footer {
+  background-color: #67afea; /* Choose your desired color */
+  color: rgb(9, 9, 9); /* Text color for the footer */
+  
+}
+.modal-body {
+  background-color: #67afea;
+}
+.modal-title {
+  background-color: rgb(164, 45, 134);
+  margin-left: 130px;
+}
+
+</style>
+ 
+  <title>Bootstrap Modal and Slider</title>
+  
+</head>
+<body>
+
+  <!-- Pricing Table from Bootstrap Example -->
+  <div class="container text-center">
+    <!-- Your pricing tables go here -->
+
+    <!-- Button triggers modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#orderModal" position="aria-label">
+      Order Now
+    </button>
+    <!-- Slider for Plan Highlighting -->
+  <div>
+    <input type="range" id="userSlider"  min="0" max="100" step="10" value="0" onchange="highlightPlan()">
+    <span id="selectedPlan">No. of users</span>
+  </div>
+
+  <!-- Plans -->
+  <div id="plan1" class="plan">Plan 1 - 0 to 10 users</div>
+  <div id="plan2" class="plan">Plan 2 - 11 to 20 users</div>
+  <div id="plan3" class="plan">Plan 3 - 21 to 30 users</div>
+  <div id="plan4" class="plan">Plan 4 - 31 to 40 users</div>
+  <div id="plan5" class="plan">Plan 5 - 41 to 50 users</div>
+  <div id="plan6" class="plan">Plan 6 - 51 to 60 users</div>
+  <div id="plan7" class="plan">Plan 7 - 61 to 70 users</div>
+  <div id="plan8" class="plan">Plan 8 - 71 to 80 users</div>
+  <div id="plan9" class="plan">Plan 9 - 81 to 90 users</div>
+  
+  <!-- Add more plans as needed -->
+  </div>
+
+  <!-- Bootstrap Modal -->
+  <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title " id="orderModalLabel">Place Your Order</h5>
+          
+    
+        </div>
+        <div class="modal-body">
+          <!-- Order Form -->
+          <form id="orderForm" class="orderForm">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+              <label for="comments">Order Comments</label>
+              <textarea class="form-control" id="comments" rows="3" placeholder="Enter your comments" required></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"  >Close</button>
+          <button type="button" class="btn btn-primary" id="placeOrderBtn" >Place Order</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <!-- Bootstrap JS and Popper.js -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  <!-- Your custom script for plan highlighting -->
+ <!-- Your custom script for plan highlighting and duplicate check -->
+<script>
+  $(document).ready(function() {
+    // Array to store submitted details (for demo purposes)
+    var submittedDetails = [];
+
+    // Initialize the selected plan on page load
+    highlightPlan();
+
+    $("#placeOrderBtn").click(function() {
+      var orderForm = document.getElementById("orderForm");
+      var nameInput = document.getElementById("name");
+      var emailInput = document.getElementById("email");
+
+      if (orderForm.checkValidity()) {
+        var name = nameInput.value.trim();
+        var email = emailInput.value.trim();
+
+        // Check for duplicate name or email
+        if (isDuplicate(name, email)) {
+          alert("Details already exist. Please provide unique information.");
+        } else {
+          // Handle the form submission
+          alert("Order placed successfully!");
+
+          // Reset the form to clear the fields
+          orderForm.reset();
+
+          // Store the submitted details (for demo purposes)
+          submittedDetails.push({ name: name, email: email });
+
+          // Close the modal
+          $("#orderModal").modal("hide");
+        }
+      } else {
+        // The form is not valid, display an error message or take appropriate action
+        alert("Please fill in all the required fields.");
+      }
+    });
+
+    function isDuplicate(name, email) {
+      // Check if the name or email already exists in the submitted details
+      return submittedDetails.some(function(detail) {
+        return detail.name.toLowerCase() === name.toLowerCase() || detail.email.toLowerCase() === email.toLowerCase();
+      });
+    }
+
+    function highlightPlan() {
+      var slider = document.getElementById("userSlider");
+      var selectedPlan = document.getElementById("selectedPlan");
+
+      // Calculate the plan based on the slider value
+      var userCount = slider.value;
+      var planNumber = Math.floor(userCount / 10) + 1;
+
+      // Highlight the corresponding plan
+      selectedPlan.innerText = "Plan " + planNumber;
+      highlightSelectedPlan(planNumber);
+    }
+
+    function highlightSelectedPlan(planNumber) {
+      // Remove highlighting from all plans
+      var plans = document.querySelectorAll('.plan');
+      plans.forEach(plan => plan.classList.remove('highlighted'));
+
+      // Highlight the selected plan
+      var selectedPlan = document.getElementById('plan' + planNumber);
+      if (selectedPlan) {
+        selectedPlan.classList.add('highlighted');
+      }
+    }
+
+    // Update the selected plan when the slider value changes
+    $("#userSlider").on("input", function() {
+      highlightPlan();
+    });
+  });
+  const formData = {
+  name: 'John Doe',
+  email: 'john@example.com',
+  comments: 'Some comments'
+};
+
+// Fetch API POST request
+fetch('https://forms.maakeetoo.com', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(formData)
+})
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+</script>
+</body>
+</html>
